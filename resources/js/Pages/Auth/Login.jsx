@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
+import BackButton from '@/Components/BackButton';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -23,10 +24,10 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <GuestLayout>
-            <Head title="Log in" />
+            <Head title="login" />
 
             {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
+                <div className="mb-4 text-sm font-medium text-red-600">
                     {status}
                 </div>
             )}
@@ -50,7 +51,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="Contraseña" value="Contraseña" />
 
                     <TextInput
                         id="password"
@@ -74,8 +75,8 @@ export default function Login({ status, canResetPassword }) {
                                 setData('remember', e.target.checked)
                             }
                         />
-                        <span className="ms-2 text-sm text-gray-600">
-                            Remember me
+                        <span className="ms-2 text-sm text-purple-600">
+                            Recuerdamelo
                         </span>
                     </label>
                 </div>
@@ -84,16 +85,18 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="rounded-md text-sm text-purple-600 underline hover:text--900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
-                            Forgot your password?
+                            ¿Olvidaste tu contraseña?
                         </Link>
                     )}
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
+                        Iniciar session
                     </PrimaryButton>
-                </div>
+                        <BackButton className='ms-4'>Volver</BackButton>
+
+                </div>                        
             </form>
         </GuestLayout>
     );

@@ -16,7 +16,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
             {/* Encabezado de página (opcional) */}
             {header && (
-                <header className="bg-white shadow">
+                <header className="bg-withe shadow">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                         {header}
                     </div>
